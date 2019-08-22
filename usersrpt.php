@@ -242,15 +242,36 @@ while ($Page->Recordset && !$Page->Recordset->EOF && $Page->GroupCount <= $Page-
 		$Page->resetAttributes();
 		$Page->RowType = ROWTYPE_DETAIL;
 		$Page->renderRow();
+		//echo "test";
+		//echo str_replace("world","Peter","Hello world!");
+		$Page->username->getViewValue() == "test";
+		$test = $Page->username->getViewValue();
+		if(empty($_SESSION['user'])){
+			$test[1] = 'X';
+			$test[2] = 'X';
+			echo $test;
+			//exit();
+		 }
+		 else
+		 {
+		// $test[1] = 'X';
+		// $test[2] = 'X';
+		echo $test;
+		 }
+
 ?>
 	<tr<?php echo $Page->rowAttributes(); ?>>
 <?php if ($Page->id->Visible) { ?>
 		<td data-field="id"<?php echo $Page->id->cellAttributes() ?>>
 <span<?php echo $Page->id->viewAttributes() ?>><?php echo $Page->id->getViewValue() ?></span></td>
 <?php } ?>
-<?php if ($Page->username->Visible) { ?>
+<!-- <?php if ($Page->username->Visible) { ?>
 		<td data-field="username"<?php echo $Page->username->cellAttributes() ?>>
 <span<?php echo $Page->username->viewAttributes() ?>><?php echo $Page->username->getViewValue() ?></span></td>
+<?php } ?> -->
+<?php if ($Page->username->Visible) { ?>
+		<td data-field="username"<?php echo $Page->username->cellAttributes() ?>>
+<span<?php echo $Page->username->viewAttributes() ?>><?php echo $test; ?></span></td>
 <?php } ?>
 <?php if ($Page->user_type->Visible) { ?>
 		<td data-field="user_type"<?php echo $Page->user_type->cellAttributes() ?>>

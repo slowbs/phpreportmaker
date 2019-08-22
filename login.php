@@ -8,6 +8,12 @@ if (session_status() !== PHP_SESSION_ACTIVE)
 // Output buffering
 ob_start();
 
+if(isset($_SESSION['user'])&&!empty($_SESSION['user'])){
+	header("Location: admin.php");
+	exit();
+ }
+
+
 // Autoload
 include_once "rautoload.php";
 ?>

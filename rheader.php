@@ -153,7 +153,11 @@ ew.vars = <?php echo JsonEncode($CLIENT_VAR) ?>;
 		<ul id="ew-navbar-right" class="navbar-nav ml-auto">
 		<li class="nav-item">
 				<a class="nav-link" href="Login">Login</i></a>
-			</li></ul>
+		</li>
+		<li class="nav-item">
+				<a class="nav-link" href="Logout">Logout</i></a>
+		</li>
+		</ul>
 	</nav>
 	<!-- /.navbar -->
 	<!-- Main Sidebar Container -->
