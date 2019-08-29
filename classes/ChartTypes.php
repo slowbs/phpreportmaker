@@ -3,7 +3,7 @@
 /**
  * PHP Report Maker 12 Chart Types
  */
-namespace PHPReportMaker12\project1;
+namespace PHPReportMaker12\project1_1;
 
 /**
  * ChartTypes class

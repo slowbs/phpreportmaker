@@ -1,5 +1,5 @@
 <?php
-namespace PHPReportMaker12\project1;
+namespace PHPReportMaker12\project1_1;
 
 // Session
 if (session_status() !== PHP_SESSION_ACTIVE)
@@ -37,12 +37,14 @@ $Page->Page_Render();
 <?php if (!$DashboardReport) { ?>
 <?php include_once "rheader.php" ?>
 <?php } ?>
+<?php if ($Page->Export == "" || $Page->Export == "print") { ?>
 <script>
 currentPageID = ew.PAGE_ID = "rpt"; // Page ID
 </script>
-<?php if (!$Page->DrillDown && !$DashboardReport) { ?>
 <?php } ?>
-<?php if (!$Page->DrillDown && !$DashboardReport) { ?>
+<?php if ($Page->Export == "" && !$Page->DrillDown && !$DashboardReport) { ?>
+<?php } ?>
+<?php if ($Page->Export == "" && !$Page->DrillDown && !$DashboardReport) { ?>
 <script>
 
 // Write your client script here, no need to add script tags.
@@ -208,7 +210,7 @@ while ($Page->Recordset && !$Page->Recordset->EOF && $Page->GroupCount <= $Page-
 <?php if ($Page->TotalGroups > 0 || FALSE) { // Show footer ?>
 </table>
 </div>
-<?php if (!($Page->DrillDown && $Page->TotalGroups > 0)) { ?>
+<?php if ($Page->Export == "" && !($Page->DrillDown && $Page->TotalGroups > 0)) { ?>
 <div class="card-footer ew-grid-lower-panel">
 <?php include "view1_pager.php" ?>
 <div class="clearfix"></div>
@@ -243,7 +245,7 @@ if ($Page->GroupRecordset)
 if ($Page->Recordset)
 	$Page->Recordset->Close();
 ?>
-<?php if (!$Page->DrillDown && !$DashboardReport) { ?>
+<?php if ($Page->Export == "" && !$Page->DrillDown && !$DashboardReport) { ?>
 <script>
 
 // Write your table-specific startup script here

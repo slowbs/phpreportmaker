@@ -1,5 +1,5 @@
 <?php
-namespace PHPReportMaker12\project1;
+namespace PHPReportMaker12\project1_1;
 
 /**
  * Page class (view1_rpt)
@@ -11,7 +11,7 @@ class view1_rpt extends view1_base
 	public $PageID = 'rpt';
 
 	// Project ID
-	public $ProjectID = "{D0523A68-3E9A-43FE-BB30-D3903FE6695E}";
+	public $ProjectID = "{5A7BC198-1D93-4AAD-AAC0-598B156BB92D}";
 
 	// Page object name
 	public $PageObjName = 'view1_rpt';
@@ -371,19 +371,19 @@ class view1_rpt extends view1_base
 		// Printer friendly
 		$item = &$this->ExportOptions->add("print");
 		$item->Body = $this->getExportTag("print");
-		$item->Visible = FALSE;
+		$item->Visible = TRUE;
 		$reportTypes["print"] = $item->Visible ? $ReportLanguage->phrase("ReportFormPrint") : "";
 
 		// Export to Excel
 		$item = &$this->ExportOptions->add("excel");
 		$item->Body = $this->getExportTag("excel");
-		$item->Visible = FALSE;
+		$item->Visible = TRUE;
 		$reportTypes["excel"] = $item->Visible ? $ReportLanguage->phrase("ReportFormExcel") : "";
 
 		// Export to Word
 		$item = &$this->ExportOptions->add("word");
 		$item->Body = $this->getExportTag("word");
-		$item->Visible = FALSE;
+		$item->Visible = TRUE;
 		$reportTypes["word"] = $item->Visible ? $ReportLanguage->phrase("ReportFormWord") : "";
 
 		// Export to Pdf
@@ -403,7 +403,7 @@ class view1_rpt extends view1_base
 		$ReportOptions["ReportTypes"] = $reportTypes;
 
 		// Drop down button for export
-		$this->ExportOptions->UseDropDownButton = FALSE;
+		$this->ExportOptions->UseDropDownButton = TRUE;
 		$this->ExportOptions->UseButtonGroup = TRUE;
 		$this->ExportOptions->UseImageAndText = $this->ExportOptions->UseDropDownButton;
 		$this->ExportOptions->DropDownButtonPhrase = $ReportLanguage->phrase("ButtonExport");
@@ -539,7 +539,7 @@ class view1_rpt extends view1_base
 	public $TotalGroups = 0; // Total groups
 	public $GroupCount = 0; // Group count
 	public $GroupCounter = []; // Group counter
-	public $DisplayGroups = 3; // Groups per page
+	public $DisplayGroups = 5; // Groups per page
 	public $GroupRange = 10;
 	public $Sort = "";
 	public $Filter = "";
@@ -1004,6 +1004,73 @@ class view1_rpt extends view1_base
 		$ReportOptions["ReportTypes"] = $reportTypes;
 	}
 
+	// Export to HTML
+	public function exportHtml($html)
+	{
+
+		//global $ExportFileName;
+		//header('Content-Type: text/html' . (PROJECT_CHARSET <> '' ? ';charset=' . PROJECT_CHARSET : ''));
+		//header('Content-Disposition: attachment; filename=' . $ExportFileName . '.html');
+
+		$folder = ReportParam("folder", "");
+		$fileName = ReportParam("filename", "");
+		$responseType = ReportParam("responsetype", "");
+		$saveToFile = "";
+
+		// Save generate file for print
+		if ($folder <> "" && $fileName <> "" && ($responseType == "json" || $responseType == "file" && REPORT_SAVE_OUTPUT_ON_SERVER)) {
+			$baseTag = "<base href=\"" . BaseUrl() . "\">";
+			$html = preg_replace('/<head>/', '<head>' . $baseTag, $html);
+			SaveFile($folder, $fileName, $html);
+			$saveToFile = UploadPath(FALSE, $folder) . $fileName;
+		}
+		if ($saveToFile == "" || $responseType == "file")
+			Write($html);
+		return $saveToFile;
+	}
+
+	// Export to Word
+	public function exportWord($html)
+	{
+		global $ExportFileName;
+		$folder = ReportParam("folder", "");
+		$fileName = ReportParam("filename", "");
+		$responseType = ReportParam("responsetype", "");
+		$saveToFile = "";
+		if ($folder <> "" && $fileName <> "" && ($responseType == "json" || $responseType == "file" && REPORT_SAVE_OUTPUT_ON_SERVER)) {
+		 	SaveFile(ServerMapPath($folder), $fileName, $html);
+			$saveToFile = UploadPath(FALSE, $folder) . $fileName;
+		}
+		if ($saveToFile == "" || $responseType == "file") {
+			AddHeader('Set-Cookie', 'fileDownload=true; path=/');
+			AddHeader('Content-Type', 'application/vnd.ms-word' . (PROJECT_CHARSET <> '' ? ';charset=' . PROJECT_CHARSET : ''));
+			AddHeader('Content-Disposition', 'attachment; filename=' . $ExportFileName . '.doc');
+			Write($html);
+		}
+		return $saveToFile;
+	}
+
+	// Export to Excel
+	public function exportExcel($html)
+	{
+		global $ExportFileName;
+		$folder = ReportParam("folder", "");
+		$fileName = ReportParam("filename", "");
+		$responseType = ReportParam("responsetype", "");
+		$saveToFile = "";
+		if ($folder <> "" && $fileName <> "" && ($responseType == "json" || $responseType == "file" && REPORT_SAVE_OUTPUT_ON_SERVER)) {
+		 	SaveFile(ServerMapPath($folder), $fileName, $html);
+			$saveToFile = UploadPath(FALSE, $folder) . $fileName;
+		}
+		if ($saveToFile == "" || $responseType == "file") {
+			AddHeader('Set-Cookie', 'fileDownload=true; path=/');
+			AddHeader('Content-Type', 'application/vnd.ms-excel' . (PROJECT_CHARSET <> '' ? ';charset=' . PROJECT_CHARSET : ''));
+			AddHeader('Content-Disposition', 'attachment; filename=' . $ExportFileName . '.xls');
+			Write($html);
+		}
+		return $saveToFile;
+	}
+
 	// Set up starting group
 	protected function setupStartGroup()
 	{
@@ -1067,7 +1134,7 @@ class view1_rpt extends view1_base
 				if (strtoupper($wrk) == "ALL") { // Display all groups
 					$this->DisplayGroups = -1;
 				} else {
-					$this->DisplayGroups = 3; // Non-numeric, load default
+					$this->DisplayGroups = 5; // Non-numeric, load default
 				}
 			}
 			$this->setGroupPerPage($this->DisplayGroups); // Save to session
@@ -1079,7 +1146,7 @@ class view1_rpt extends view1_base
 			if ($this->getGroupPerPage() <> "") {
 				$this->DisplayGroups = $this->getGroupPerPage(); // Restore from session
 			} else {
-				$this->DisplayGroups = 3; // Load default
+				$this->DisplayGroups = 5; // Load default
 			}
 		}
 	}

@@ -1,5 +1,5 @@
 <?php
-namespace PHPReportMaker12\project1;
+namespace PHPReportMaker12\project1_1;
 
 // Session
 if (session_status() !== PHP_SESSION_ACTIVE)
@@ -8,23 +8,17 @@ if (session_status() !== PHP_SESSION_ACTIVE)
 // Output buffering
 ob_start();
 
-if(isset($_SESSION['user'])&&!empty($_SESSION['user'])){
-	header("Location: admin.php");
-	exit();
- }
-
-
 // Autoload
 include_once "rautoload.php";
 ?>
 <?php
 
 // Create page object
-if (!isset($login))
-	$login = new login();
+if (!isset($_login_rpt))
+	$_login_rpt = new _login_rpt();
 if (isset($Page))
 	$OldPage = $Page;
-$Page = &$login;
+$Page = &$_login_rpt;
 
 // Run the page
 $Page->run();
@@ -44,7 +38,7 @@ $Page->Page_Render();
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="login.php" method="post">
+				<form class="login100-form validate-form" action="_loginrpt.php" method="post">
 					<span class="login100-form-title p-b-26">
 						Welcome
 					</span>

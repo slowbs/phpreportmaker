@@ -1,5 +1,5 @@
 <?php
-namespace PHPReportMaker12\project1;
+namespace PHPReportMaker12\project1_1;
 
 /**
  * PHP Report Maker common classes and functions

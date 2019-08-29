@@ -1,6 +1,7 @@
 <?php
-namespace PHPReportMaker12\project1;
+namespace PHPReportMaker12\project1_1;
 ?>
+<?php if (@$ExportType == "") { ?>
 <?php if (@!$SkipHeaderFooter) { ?>
 		<?php if (isset($DebugTimer)) $DebugTimer->stop() ?>
 		</div><!-- /.container-fluid -->
@@ -120,5 +121,6 @@ jQuery.get(ew.RELATIVE_PATH + "phprptjs/rusrevt12.js");
 // console.log("page loaded");
 
 </script>
+<?php } ?>
 </body>
 </html>

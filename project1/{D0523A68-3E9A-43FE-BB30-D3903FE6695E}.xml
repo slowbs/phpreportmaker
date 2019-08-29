@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<configuration date="2019/08/20" author="e.World Technology Ltd.">
-  <project id="{D0523A68-3E9A-43FE-BB30-D3903FE6695E}" file="C:\Users\slowbs\Documents\PHPReportMaker\Projects\project1.prp" name="project1" product="PHPReportMaker" version="12.0" datetime="2019/08/20 15:09:50" languagefolder="phprptlang" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0">
-    <table id="members" name="members" caption="สมาชิก ถถถถ" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,8" priv="1" />
-    <table id="users" name="users" caption="ชื่อผู้ใช้" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,8" priv="1" />
-    <table id="view1" name="view1" caption="view 1" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="1" />
-  </project>
-</configuration>

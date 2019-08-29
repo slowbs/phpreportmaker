@@ -1,5 +1,5 @@
 <?php
-namespace PHPReportMaker12\project1;
+namespace PHPReportMaker12\project1_1;
 
 /**
  * Table class for users

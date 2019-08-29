@@ -1,5 +1,5 @@
 <?php
-namespace PHPReportMaker12\project1;
+namespace PHPReportMaker12\project1_1;
 
 /**
  * Page class (rptindex)
@@ -11,7 +11,7 @@ class rptindex
 	public $PageID = 'rptindex';
 
 	// Project ID
-	public $ProjectID = "{D0523A68-3E9A-43FE-BB30-D3903FE6695E}";
+	public $ProjectID = "{5A7BC198-1D93-4AAD-AAC0-598B156BB92D}";
 
 	// Page object name
 	public $PageObjName = 'rptindex';

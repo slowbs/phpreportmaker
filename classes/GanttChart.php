@@ -3,7 +3,7 @@
 /**
  * Gantt chart classes for PHP Report Maker 12
  */
-namespace PHPReportMaker12\project1;
+namespace PHPReportMaker12\project1_1;
 
 /**
  * Gantt Chart Categories

@@ -1,5 +1,5 @@
 <?php
-namespace PHPReportMaker12\project1;
+namespace PHPReportMaker12\project1_1;
 ?>
 <form name="ew-pager-form" class="form-inline ew-form ew-pager-form" action="<?php echo CurrentPageName() ?>">
 <?php if (!isset($pager)) $pager = new PrevNextPager($Page->StartGroup, $Page->DisplayGroups, $Page->TotalGroups) ?>

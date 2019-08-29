@@ -3,7 +3,7 @@
 /**
  * PHP Report Maker 12 configuration file
  */
-namespace PHPReportMaker12\project1;
+namespace PHPReportMaker12\project1_1;
 
 // Use
 use \Psr\Http\Message\ServerRequestInterface as Request;

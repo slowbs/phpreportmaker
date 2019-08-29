@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<ew-language date="2019/8/20" version="12.0.1" id="en" name="English" desc="English" author="e.World Technology Ltd.">
+<ew-language date="2019/8/23" version="12.0.1" id="en" name="English" desc="English" author="e.World Technology Ltd.">
   <!-- 
 	*** Important Notes:
 	1. Language ID should follow: https://developers.google.com/recaptcha/docs/language,
@@ -401,7 +401,11 @@
     <phrase id="thisyear" value="This year" />
   </global>
   <project>
+    <phrase id="bodytitle" value="เทสระบบ" />
     <phrase id="footertext" value="&amp;copy;2019 e.World Technology Ltd. All rights reserved." />
+    <menu id="7">
+      <phrase id="menutext" value="login" />
+    </menu>
     <menu id="1">
       <phrase id="menutext" value="members" />
     </menu>
@@ -409,15 +413,15 @@
       <phrase id="menutext" value="users" />
     </menu>
     <menu id="3">
-      <phrase id="menutext" value="TESt" />
-    </menu>
-    <menu id="4">
       <phrase id="menutext" value="view 1" />
     </menu>
+    <menu id="6">
+      <phrase id="menutext" value="Test" />
+    </menu>
     <table id="members_base">
-      <phrase id="tblcaption" value="สมาชิก ถถถถ" />
+      <phrase id="tblcaption" value="members" />
       <field id="mem_id">
-        <phrase id="fldcaption" value="id สมาชิก" />
+        <phrase id="fldcaption" value="mem id" />
       </field>
       <field id="mem_name">
         <phrase id="fldcaption" value="mem name" />
@@ -439,7 +443,7 @@
       </field>
     </table>
     <table id="users_base">
-      <phrase id="tblcaption" value="ชื่อผู้ใช้" />
+      <phrase id="tblcaption" value="users" />
       <field id="id">
         <phrase id="fldcaption" value="id" />
       </field>
@@ -465,7 +469,19 @@
         <phrase id="fldcaption" value="mem name" />
       </field>
       <field id="mem_id">
-        <phrase id="fldcaption" value="id สมาชิก" />
+        <phrase id="fldcaption" value="mem id" />
+      </field>
+    </table>
+    <table id="test_base">
+      <phrase id="tblcaption" value="ทดสอบ ถถถ" />
+      <field id="mem_id">
+        <phrase id="fldcaption" value="mem id" />
+      </field>
+    </table>
+    <table id="_login_base">
+      <phrase id="tblcaption" value="login" />
+      <field id="mem_id">
+        <phrase id="fldcaption" value="mem id" />
       </field>
     </table>
   </project>

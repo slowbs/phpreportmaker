@@ -1,5 +1,5 @@
 <?php
-namespace PHPReportMaker12\project1;
+namespace PHPReportMaker12\project1_1;
 
 // Session
 if (session_status() !== PHP_SESSION_ACTIVE)
@@ -37,12 +37,14 @@ $Page->Page_Render();
 <?php if (!$DashboardReport) { ?>
 <?php include_once "rheader.php" ?>
 <?php } ?>
+<?php if ($Page->Export == "" || $Page->Export == "print") { ?>
 <script>
 currentPageID = ew.PAGE_ID = "rpt"; // Page ID
 </script>
-<?php if (!$Page->DrillDown && !$DashboardReport) { ?>
 <?php } ?>
-<?php if (!$Page->DrillDown && !$DashboardReport) { ?>
+<?php if ($Page->Export == "" && !$Page->DrillDown && !$DashboardReport) { ?>
+<?php } ?>
+<?php if ($Page->Export == "" && !$Page->DrillDown && !$DashboardReport) { ?>
 <script>
 
 // Write your client script here, no need to add script tags.
@@ -242,17 +244,16 @@ while ($Page->Recordset && !$Page->Recordset->EOF && $Page->GroupCount <= $Page-
 		$Page->resetAttributes();
 		$Page->RowType = ROWTYPE_DETAIL;
 		$Page->renderRow();
-		//echo "test";
-		//echo str_replace("world","Peter","Hello world!");
-		$Page->username->getViewValue() == "test";
+
 		$test = $Page->username->getViewValue();
-		if(empty($_SESSION['user'])){
-			$test[1] = 'X';
-			$test[2] = 'X';
-			echo $test;
-			//exit();
+		if($_SESSION['user']['user_type'] != 'admin'){
+			if($_SESSION['user']['username'] != $test){
+				$test[1] = 'X';
+				$test[2] = 'X';
+				//echo $test;
+				//exit();
+			}
 		 }
-		 else
 		 {
 		// $test[1] = 'X';
 		// $test[2] = 'X';
@@ -265,13 +266,9 @@ while ($Page->Recordset && !$Page->Recordset->EOF && $Page->GroupCount <= $Page-
 		<td data-field="id"<?php echo $Page->id->cellAttributes() ?>>
 <span<?php echo $Page->id->viewAttributes() ?>><?php echo $Page->id->getViewValue() ?></span></td>
 <?php } ?>
-<!-- <?php if ($Page->username->Visible) { ?>
-		<td data-field="username"<?php echo $Page->username->cellAttributes() ?>>
-<span<?php echo $Page->username->viewAttributes() ?>><?php echo $Page->username->getViewValue() ?></span></td>
-<?php } ?> -->
 <?php if ($Page->username->Visible) { ?>
 		<td data-field="username"<?php echo $Page->username->cellAttributes() ?>>
-<span<?php echo $Page->username->viewAttributes() ?>><?php echo $test; ?></span></td>
+<span<?php echo $Page->username->viewAttributes() ?>><?php echo $Page->username->getViewValue() ?></span></td>
 <?php } ?>
 <?php if ($Page->user_type->Visible) { ?>
 		<td data-field="user_type"<?php echo $Page->user_type->cellAttributes() ?>>
@@ -317,7 +314,7 @@ while ($Page->Recordset && !$Page->Recordset->EOF && $Page->GroupCount <= $Page-
 <?php if ($Page->TotalGroups > 0 || FALSE) { // Show footer ?>
 </table>
 </div>
-<?php if (!($Page->DrillDown && $Page->TotalGroups > 0)) { ?>
+<?php if ($Page->Export == "" && !($Page->DrillDown && $Page->TotalGroups > 0)) { ?>
 <div class="card-footer ew-grid-lower-panel">
 <?php include "users_pager.php" ?>
 <div class="clearfix"></div>
@@ -352,7 +349,7 @@ if ($Page->GroupRecordset)
 if ($Page->Recordset)
 	$Page->Recordset->Close();
 ?>
-<?php if (!$Page->DrillDown && !$DashboardReport) { ?>
+<?php if ($Page->Export == "" && !$Page->DrillDown && !$DashboardReport) { ?>
 <script>
 
 // Write your table-specific startup script here

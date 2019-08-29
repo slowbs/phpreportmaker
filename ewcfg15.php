@@ -3,7 +3,7 @@
 /**
  * PHPMaker 2019 configuration file
  */
-namespace PHPReportMaker12\project1;
+namespace PHPReportMaker12\project1_1;
 
 // Define namespace constant
 define(__NAMESPACE__ . '\PROJECT_NAMESPACE', __NAMESPACE__ . '\\');
@@ -35,26 +35,26 @@ define(PROJECT_NAMESPACE . "PRODUCT_VERSION", "12.0.6");
 define(PROJECT_NAMESPACE . "IS_WINDOWS", (strtolower(substr(PHP_OS, 0, 3)) === 'win')); // Is Windows OS
 define(PROJECT_NAMESPACE . "PATH_DELIMITER", ((IS_WINDOWS) ? "\\" : "/")); // Physical path delimiter
 define(PROJECT_NAMESPACE . "UNFORMAT_YEAR", 50); // Unformat year
-define(PROJECT_NAMESPACE . "PROJECT_NAME", "project1"); // Project name
+define(PROJECT_NAMESPACE . "PROJECT_NAME", "project1_1"); // Project name
 define(PROJECT_NAMESPACE . "CONFIG_FILE_FOLDER", PROJECT_NAME); // Config file name
-define(PROJECT_NAMESPACE . "RANDOM_KEY", 'A6QCvC626h2TnhM8'); // Random key for encryption
+define(PROJECT_NAMESPACE . "RANDOM_KEY", 'nmdYQigWa9jfbYk5'); // Random key for encryption
 define(PROJECT_NAMESPACE . "ENCRYPTION_KEY", ''); // Encryption key for data protection
-define(PROJECT_NAMESPACE . "PROJECT_STYLESHEET_FILENAME", "phprptcss/project1.css"); // Project stylesheet file name
+define(PROJECT_NAMESPACE . "PROJECT_STYLESHEET_FILENAME", "phprptcss/project1_1.css"); // Project stylesheet file name
 define(PROJECT_NAMESPACE . "PROJECT_CHARSET", "utf-8"); // Project charset
 define(PROJECT_NAMESPACE . "IS_UTF8", TRUE); // Project charset
 define(PROJECT_NAMESPACE . "EMAIL_CHARSET", PROJECT_CHARSET); // Email charset
 define(PROJECT_NAMESPACE . "HIGHLIGHT_COMPARE", TRUE); // Highlight compare mode, TRUE(case-insensitive)|FALSE(case-sensitive)
 define(PROJECT_NAMESPACE . "FONT_SIZE", 14);
 define(PROJECT_NAMESPACE . "TEMP_IMAGE_FONT", "DejaVuSans"); // Font for temp files
-$PROJECT_ID = "{D0523A68-3E9A-43FE-BB30-D3903FE6695E}"; // Project ID (GUID)
+$PROJECT_ID = "{5A7BC198-1D93-4AAD-AAC0-598B156BB92D}"; // Project ID (GUID)
 $RELATED_PROJECT_ID = "";
 $RELATED_LANGUAGE_FOLDER = "";
 $COMPOSITE_KEY_SEPARATOR = ","; // Composite key separator
 $LAZY_LOAD = TRUE; // Lazy loading of images
 $RELATED_PROJECT_ID = "";
 $BODY_CLASS = "hold-transition";
-$SIDEBAR_CLASS = "main-sidebar sidebar-dark-danger";
-$NAVBAR_CLASS = "main-header navbar navbar-expand navbar-dark bg-danger";
+$SIDEBAR_CLASS = "main-sidebar sidebar-dark-primary";
+$NAVBAR_CLASS = "main-header navbar navbar-expand navbar-dark bg-primary";
 $RESET_HEIGHT = TRUE; // Reset layout height
 
 // Class path
@@ -155,7 +155,7 @@ define(PROJECT_NAMESPACE . "POSTGRESQL_CHARSET", "UTF8");
  * first before calculating hash. Otherwise, existing users will not be able
  * to login. Hashed password is irreversible, it will be reset during password recovery.
  */
-define(PROJECT_NAMESPACE . "ENCRYPTED_PASSWORD", TRUE); // Use encrypted password
+define(PROJECT_NAMESPACE . "ENCRYPTED_PASSWORD", FALSE); // Use encrypted password
 define(PROJECT_NAMESPACE . "CASE_SENSITIVE_PASSWORD", FALSE); // Case-sensitive password
 
 // Remove XSS
@@ -319,11 +319,11 @@ define(PROJECT_NAMESPACE . "USE_SUBQUERY_FOR_MASTER_USER_ID", FALSE);
 define(PROJECT_NAMESPACE . "USER_ID_ALLOW", 104);
 
 // User table/field names
-define(PROJECT_NAMESPACE . "USER_TABLE_NAME", "users");
-define(PROJECT_NAMESPACE . "LOGIN_USERNAME_FIELD_NAME", "username");
-define(PROJECT_NAMESPACE . "LOGIN_PASSWORD_FIELD_NAME", "password");
-define(PROJECT_NAMESPACE . "USER_ID_FIELD_NAME", "");
-define(PROJECT_NAMESPACE . "USER_LEVEL_FIELD_NAME", "");
+define(PROJECT_NAMESPACE . "USER_TABLE_NAME", "");
+define(PROJECT_NAMESPACE . "LOGIN_USERNAME_FIELD_NAME", "");
+define(PROJECT_NAMESPACE . "LOGIN_PASSWORD_FIELD_NAME", "");
+define(PROJECT_NAMESPACE . "USER_ID_FIELD_NAME", "null");
+define(PROJECT_NAMESPACE . "USER_LEVEL_FIELD_NAME", "null");
 define(PROJECT_NAMESPACE . "USER_PROFILE_FIELD_NAME", "undefined");
 define(PROJECT_NAMESPACE . "REGISTER_ACTIVATE_FIELD_NAME", "");
 define(PROJECT_NAMESPACE . "USER_EMAIL_FIELD_NAME", "");

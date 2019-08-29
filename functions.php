@@ -183,12 +183,13 @@
 
 					$_SESSION['user'] = $logged_in_user;
 					$_SESSION['success']  = "You are now logged in";
-					header('location: admin.php');		  
+					//header('location: admin.php');		  
+					header('location: usersrpt.php');		  
 				}else{
 					$_SESSION['user'] = $logged_in_user;
 					//$_SESSION['success']  = "You are now logged in";
 					$ap = $_SESSION['user']['hospcode'];
-					header('location: user.php');
+					header('location: usersrpt.php');
 					
 				}
 			}else {
