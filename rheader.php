@@ -159,7 +159,24 @@ ew.vars = <?php echo JsonEncode($CLIENT_VAR) ?>;
 			</li>
 		</ul>
 		<!-- Right navbar links -->
-		<ul id="ew-navbar-right" class="navbar-nav ml-auto"></ul>
+		<ul id="ew-navbar-right" class="navbar-nav ml-auto">
+		<?php if(isset($_SESSION['user'])&&!empty($_SESSION['user'])){ ?>
+			<li class="nav-item">
+				<a class="nav-link" href="_loginrpt.php"><?php echo $_SESSION['user']['username'] ?></i></a>
+			</li>
+			<?php   			
+		}
+		else {
+		?>
+			<li class="nav-item">
+				<a class="nav-link" href="_loginrpt.php">Login</i></a>
+			</li>
+		<?php }
+		?>
+			<li class="nav-item">
+				<a class="nav-link" href="?logout">Logout</i></a>
+			</li>
+		</ul>
 	</nav>
 	<!-- /.navbar -->
 	<!-- Main Sidebar Container -->
@@ -198,4 +215,9 @@ ew.vars = <?php echo JsonEncode($CLIENT_VAR) ?>;
 		<section class="content">
 		<div class="container-fluid">
 <?php } ?>
-<?php } ?>
+<?php }
+	if (isset($_GET['logout'])) {
+		session_destroy();
+		unset($_SESSION['user']);
+		header("location: usersrpt.php");
+	} ?>

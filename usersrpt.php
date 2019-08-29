@@ -246,14 +246,16 @@ while ($Page->Recordset && !$Page->Recordset->EOF && $Page->GroupCount <= $Page-
 		$Page->renderRow();
 
 		$test = $Page->username->getViewValue();
-		if($_SESSION['user']['user_type'] != 'admin'){
-			if($_SESSION['user']['username'] != $test){
+		if(empty($_SESSION['user'])){
 				$test[1] = 'X';
 				$test[2] = 'X';
 				//echo $test;
 				//exit();
 			}
-		 }
+		elseif($_SESSION['user']['username'] != $test && $_SESSION['user']['user_type'] != 'admin'){
+				$test[1] = 'X';
+				$test[2] = 'X';
+		}
 		 {
 		// $test[1] = 'X';
 		// $test[2] = 'X';
