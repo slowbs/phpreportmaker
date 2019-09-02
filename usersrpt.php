@@ -244,24 +244,9 @@ while ($Page->Recordset && !$Page->Recordset->EOF && $Page->GroupCount <= $Page-
 		$Page->resetAttributes();
 		$Page->RowType = ROWTYPE_DETAIL;
 		$Page->renderRow();
-
-		$test = $Page->username->getViewValue();
-		if(empty($_SESSION['user'])){
-				$test[1] = 'X';
-				$test[2] = 'X';
-				//echo $test;
-				//exit();
-			}
-		elseif($_SESSION['user']['username'] != $test && $_SESSION['user']['user_type'] != 'admin'){
-				$test[1] = 'X';
-				$test[2] = 'X';
-		}
-		 {
-		// $test[1] = 'X';
-		// $test[2] = 'X';
-		echo $test;
-		 }
-
+		include 'cid.php';
+		//$Page->username->ViewValue = "test";
+		//echo $Page->username->ViewValue;
 ?>
 	<tr<?php echo $Page->rowAttributes(); ?>>
 <?php if ($Page->id->Visible) { ?>
@@ -274,7 +259,7 @@ while ($Page->Recordset && !$Page->Recordset->EOF && $Page->GroupCount <= $Page-
 <?php } ?>
 <!-- <?php if ($Page->username->Visible) { ?>
 		<td data-field="username"<?php echo $Page->username->cellAttributes() ?>>
-<span<?php echo $Page->username->viewAttributes() ?>><?php echo $test; ?></span></td>
+<span<?php echo $Page->username->viewAttributes() ?>><?php echo $cid; ?></span></td>
 <?php } ?> -->
 <?php if ($Page->user_type->Visible) { ?>
 		<td data-field="user_type"<?php echo $Page->user_type->cellAttributes() ?>>
