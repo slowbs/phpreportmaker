@@ -5,6 +5,11 @@ namespace PHPReportMaker12\project1_1;
 if (session_status() !== PHP_SESSION_ACTIVE)
 	session_start(); // Init session data
 
+if(isset($_SESSION['user'])&&!empty($_SESSION['user'])){
+   header("Location: index.php");
+   exit();
+}
+
 // Output buffering
 ob_start();
 

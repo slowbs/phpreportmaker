@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<ew-language date="2019/8/23" version="12.0.1" id="en" name="English" desc="English" author="e.World Technology Ltd.">
+<ew-language date="2019/9/2" version="12.0.1" id="en" name="English" desc="English" author="e.World Technology Ltd.">
   <!-- 
 	*** Important Notes:
 	1. Language ID should follow: https://developers.google.com/recaptcha/docs/language,
@@ -403,6 +403,9 @@
   <project>
     <phrase id="bodytitle" value="เทสระบบ" />
     <phrase id="footertext" value="&amp;copy;2019 e.World Technology Ltd. All rights reserved." />
+    <menu id="8">
+      <phrase id="menutext" value="testadd" />
+    </menu>
     <menu id="7">
       <phrase id="menutext" value="login" />
     </menu>
@@ -483,6 +486,9 @@
       <field id="mem_id">
         <phrase id="fldcaption" value="mem id" />
       </field>
+    </table>
+    <table id="_test">
+      <phrase id="tblcaption" value="testadd" />
     </table>
   </project>
 </ew-language>

@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<configuration date="2019/08/23" author="e.World Technology Ltd.">
-  <project id="{5A7BC198-1D93-4AAD-AAC0-598B156BB92D}" file="C:\Users\slowbs\Documents\PHPReportMaker\Projects\project1_1.prp" name="project1_1" product="PHPReportMaker" version="12.0" datetime="2019/08/23 09:16:34" languagefolder="phprptlang" userlevel="-2,&quot;Anonymous&quot;,0;">
+<configuration date="2019/09/02" author="e.World Technology Ltd.">
+  <project id="{5A7BC198-1D93-4AAD-AAC0-598B156BB92D}" file="C:\Users\slowbs\Documents\PHPReportMaker\Projects\project1_1.prp" name="project1_1" product="PHPReportMaker" version="12.0" datetime="2019/09/02 15:17:04" languagefolder="phprptlang" userlevel="-2,&quot;Anonymous&quot;,0;">
     <table id="members" name="members" caption="members" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
     <table id="users" name="users" caption="users" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
     <table id="view1" name="view1" caption="view 1" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
     <table id="test" name="test" caption="ทดสอบ ถถถ" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
     <table id="_login" name="login" caption="login" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="_test" name="test.php" caption="testadd" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
   </project>
 </configuration>
