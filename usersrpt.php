@@ -272,6 +272,10 @@ while ($Page->Recordset && !$Page->Recordset->EOF && $Page->GroupCount <= $Page-
 		<td data-field="username"<?php echo $Page->username->cellAttributes() ?>>
 <span<?php echo $Page->username->viewAttributes() ?>><?php echo $Page->username->getViewValue() ?></span></td>
 <?php } ?>
+<!-- <?php if ($Page->username->Visible) { ?>
+		<td data-field="username"<?php echo $Page->username->cellAttributes() ?>>
+<span<?php echo $Page->username->viewAttributes() ?>><?php echo $test; ?></span></td>
+<?php } ?> -->
 <?php if ($Page->user_type->Visible) { ?>
 		<td data-field="user_type"<?php echo $Page->user_type->cellAttributes() ?>>
 <span<?php echo $Page->user_type->viewAttributes() ?>><?php echo $Page->user_type->getViewValue() ?></span></td>

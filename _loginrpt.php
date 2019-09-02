@@ -37,10 +37,10 @@ $Page->Page_Render();
 <?php include 'functions.php';?>
 <div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="_loginrpt.php" method="post">
-					<span class="login100-form-title p-b-26">
-						Welcome
+			<div class="wrap-login100 p-t-50 p-b-90">
+				<form class="login100-form validate-form flex-sb flex-w" action="_loginrpt.php" method="post">
+				<span class="login100-form-title p-b-51">
+						Login
 					</span>
 					<span class="login100-form-title p-b-48">
 						<i class="zmdi zmdi-font"></i>
@@ -62,20 +62,12 @@ $Page->Page_Render();
 					<?php //echo display_error(); ?>
 					</div>
 
-					<div class="container-login100-form-btn">
+					<div class="container-login100-form-btn m-t-17">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<button class="login100-form-btn" name="login_btn">
 								Login
 							</button>
-						</div>
-					</div>
-					<div class="container-login200-form-btn">
-						<div class="wrap-login200-form-btn">
-							<div class="login200-form-bgbtn"></div>
-							<a href="form.php"><button type="button" class="login200-form-btn">
-								Cancel
-							</button></a>
 						</div>
 					</div>
 
