@@ -16,6 +16,7 @@ echo $topMenu->toScript();
 
 // Sidebar menu
 $sideMenu = new Menu("menu", TRUE, FALSE);
+$sideMenu->addMenuItem(8, "mi_custom", $ReportLanguage->menuPhrase("8", "MenuText"), "custom.php", -1, "", TRUE, FALSE, TRUE, "", "", FALSE);
 $sideMenu->addMenuItem(7, "mi__login", $ReportLanguage->phrase("SimpleReportMenuItemPrefix") . $ReportLanguage->menuPhrase("7", "MenuText") . $ReportLanguage->phrase("SimpleReportMenuItemSuffix"), "_loginrpt.php", -1, "", TRUE, FALSE, FALSE, "", "", FALSE);
 $sideMenu->addMenuItem(1, "mi_members", $ReportLanguage->phrase("SimpleReportMenuItemPrefix") . $ReportLanguage->menuPhrase("1", "MenuText") . $ReportLanguage->phrase("SimpleReportMenuItemSuffix"), "membersrpt.php", -1, "", TRUE, FALSE, FALSE, "", "", FALSE);
 $sideMenu->addMenuItem(2, "mi_users", $ReportLanguage->phrase("SimpleReportMenuItemPrefix") . $ReportLanguage->menuPhrase("2", "MenuText") . $ReportLanguage->phrase("SimpleReportMenuItemSuffix"), "usersrpt.php", -1, "", TRUE, FALSE, FALSE, "", "", FALSE);
